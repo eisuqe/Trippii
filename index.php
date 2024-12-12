@@ -5,7 +5,7 @@ $error = null; // エラー表示用
 
 // ログイン失敗時にエラーメッセージを取得
 if (isset($_SESSION['login_error'])) {
-    $error = $_SESSION['login_error'];
+    //$error = $_SESSION['login_error'];
     unset($_SESSION['login_error']);
 }
 ?>
