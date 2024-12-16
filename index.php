@@ -1,4 +1,3 @@
-<!-- index.php -->
 <?php
 ob_start(); // 出力バッファリングを開始
 session_start();
@@ -10,6 +9,7 @@ if (isset($_SESSION['login_error'])) {
 }
 ob_end_flush(); // 出力をフラッシュ
 ?>
+<!-- index.php -->
 <!DOCTYPE html>
 <html lang="ja">
     <head>
