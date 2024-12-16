@@ -1,13 +1,14 @@
 <!-- index.php -->
 <?php
+ob_start(); // 出力バッファリングを開始
 session_start();
 $error = null; // エラー表示用
 
-// ログイン失敗時にエラーメッセージを取得
 if (isset($_SESSION['login_error'])) {
     //$error = $_SESSION['login_error'];
     unset($_SESSION['login_error']);
 }
+ob_end_flush(); // 出力をフラッシュ
 ?>
 <!DOCTYPE html>
 <html lang="ja">
