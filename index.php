@@ -10,6 +10,8 @@ if (isset($_SESSION['login_error'])) {
 ob_end_flush(); // 出力をフラッシュ
 ?>
 
+
+
 <!-- index.php -->
 <!DOCTYPE html>
 <html lang="ja">
