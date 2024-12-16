@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tranner</title>
+    <title>Trippii-Home</title>
     <link rel="stylesheet" href="./css/style.css">
     <?php include './tools/heads/head-link.php'; ?>
 </head>
@@ -24,7 +24,7 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="shop.php" class="new-trip-icon">
                     <div class="new-trip-img">+</div>
                 </a>
-                <a class="new-trip-text">add a new trip</a>
+                <a class="new-trip-text">新規作成</a>
             </div>
             <?php
             for ($i = 0; $i < 10; $i++) {
