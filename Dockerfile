@@ -1,21 +1,22 @@
-# ベースイメージを指定 (PHP + Apache)
-FROM php:8.2-apache
+FROM php:8.1-apache
 
-# 必要なPHP拡張モジュールをインストール
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# 必要なパッケージをインストール
+RUN apt-get update && apt-get install -y libpq-dev && \
+    docker-php-ext-install pdo pdo_pgsql
 
-# Composerをインストール
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Apacheの設定
+COPY ./your-site.conf /etc/apache2/sites-available/000-default.conf
+RUN a2enmod rewrite
 
-# アプリケーションコードをコンテナにコピー
-COPY . /var/www/html
+# 必要なPHP拡張をインストール
+RUN docker-php-ext-install pdo pdo_pgsql
 
-# Apacheの設定を更新 (必要に応じて)
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+# その他の設定（必要に応じて）
+# COPY ./index.php /var/www/html/index.php
 
-# ポート80を公開
+# ポート80でリッスン
 EXPOSE 80
 
 # Apacheサーバーを起動
 CMD ["apache2-foreground"]
+
