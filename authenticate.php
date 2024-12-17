@@ -1,62 +1,49 @@
-<!-- auhtenticate.php -->
 <?php
-require './tools/db/db.php';
+require './tools/db/db.php'; // データベース接続ファイルを読み込む
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+$email = $_POST['email'] ?? null;
+$password = $_POST['password'] ?? null;
 
-    // データベースからユーザー情報を取得
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-    $stmt->execute(['email' => $email]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($password, $user['password'])) {
-        // ログイン成功
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['email'] = $user['email'];
-        header('Location: home.php'); // home.php にリダイレクト
-        exit;
-    } else {
-        // ログイン失敗
-        $_SESSION['login_error'] = "メールアドレスまたはパスワードが間違っています。";
-        header('Location: index.php'); // エラーメッセージを表示するため index.php にリダイレクト
-        exit;
-    }
-}
+// POSTリクエストの確認
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? null;
     $password = $_POST['password'] ?? null;
 
+    // 入力が空の場合のチェック
     if (!$email || !$password) {
-        die('入力が不完全です。');
-    }
-
-    // データベースからユーザーを取得
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-    $stmt->execute(['email' => $email]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if (!$user) {
-        die('メールアドレスが見つかりません。');
-    }
-
-    // デバッグ: DBから取得したパスワードを確認
-    echo "DBに保存されているハッシュ: " . htmlspecialchars($user['password']) . "<br>";
-    echo "入力されたパスワード: " . htmlspecialchars($password) . "<br>";
-
-    // パスワード検証
-    if (password_verify($password, $user['password'])) {
-        echo "パスワードが一致しました！";
-        // ここでセッション設定とリダイレクト
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['email'] = $user['email'];
-        header('Location: home.php');
+        $_SESSION['login_error'] = 'メールアドレスまたはパスワードが未入力です。';
+        header('Location: index.php');
         exit;
-    } else {
-        die('パスワードが一致しません。');
     }
-}
 
+    try {
+        // データベースからユーザー情報を取得
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->execute(['email' => $email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // ユーザーが存在し、パスワードが正しい場合
+        if ($user && password_verify($password, $user['password'])) {
+            // セッションに情報を保存
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['email'] = $user['email'];
+            header('Location: home.php'); // ログイン成功後にhome.phpへリダイレクト
+            exit;
+        } else {
+            // ログイン失敗時
+            $_SESSION['login_error'] = 'メールアドレスまたはパスワードが間違っています。';
+            header('Location: index.php');
+            exit;
+        }
+    } catch (PDOException $e) {
+        // データベースエラー時
+        die("データベースエラー: " . $e->getMessage());
+    }
+} else {
+    // POST以外のアクセスはindex.phpへリダイレクト
+    header('Location: index.php');
+    exit;
+}
 ?>
