@@ -1,19 +1,19 @@
-# PHPとApacheのベースイメージを使用
+# PHP と Apache のベースイメージを使用
 FROM php:8.2-apache
 
-# 必要なPHP拡張をインストール (MySQL接続用)
+# 必要な PHP 拡張（MySQL 接続用）をインストール
 RUN apt-get update && apt-get install -y libmysqlclient-dev && \
-    docker-php-ext-install pdo pdo_mysql
+    docker-php-ext-install pdo pdo_mysql mysqli
 
 # アプリケーションコードをコンテナにコピー
-COPY . /var/www/html
+COPY . /var/www/html/
 
-# Apacheの設定を調整
+# Apache の設定を更新 (必要に応じて)
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
 
 # ポート80を公開
 EXPOSE 80
 
-# Apacheサーバーを起動
+# Apache サーバーを起動
 CMD ["apache2-foreground"]
