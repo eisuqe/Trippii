@@ -1,4 +1,3 @@
-<!-- new-user.php -->
 <?php
 session_start();
 $error = null;
