@@ -2,7 +2,7 @@
 // データベース接続設定
 try {
     // sslmode=prefer を使用してみる
-    $dsn = "pgsql:host=dpg-ctdofcaj1k6c73ds3pdg-a.singapore-postgres.render.com;port=5432;dbname=db_trippii;user=root;password=6vyi646onyQuRuxiQvgVm8DZDzjPI64e;sslmode=require;";
+    $dsn = "mysql:host=dbtrippii.cdmms6ic0jg5.us-west-2.rds.amazonaws.com;port=3306;dbname=trippii;user=root;password=eaglerock70;";
     $pdo = new PDO($dsn);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
