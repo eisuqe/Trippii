@@ -1,21 +1,16 @@
-# ベースイメージを指定 (PHP + Apache)
+# PHPとApacheのベースイメージを使用
 FROM php:8.2-apache
 
-# 必要なパッケージをインストール (MySQL用)
-RUN apt-get update && apt-get install -y \
-    default-mysql-client \
-    default-libmysqlclient-dev && \
-    docker-php-ext-install pdo_mysql
-
-# Composerをインストール
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# 必要なPHP拡張をインストール (MySQL接続用)
+RUN apt-get update && apt-get install -y libmysqlclient-dev && \
+    docker-php-ext-install pdo pdo_mysql
 
 # アプリケーションコードをコンテナにコピー
 COPY . /var/www/html
 
-# アクセス権限の設定
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+# Apacheの設定を調整
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html
 
 # ポート80を公開
 EXPOSE 80
