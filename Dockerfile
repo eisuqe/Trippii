@@ -1,10 +1,13 @@
 # PHP と Apache のベースイメージを使用
 FROM php:8.2-apache
 
-# 必要なパッケージをインストール (MySQL クライアント用)
+# 必要なパッケージをインストール (MySQL 用)
 RUN apt-get update && apt-get install -y \
     libmysqlclient-dev \
-    && docker-php-ext-install pdo pdo_mysql mysqli
+    libssl-dev \
+    zlib1g-dev \
+    && docker-php-ext-install pdo pdo_mysql mysqli \
+    && apt-get clean
 
 # アプリケーションコードをコンテナにコピー
 COPY . /var/www/html/
