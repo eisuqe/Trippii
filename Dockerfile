@@ -1,8 +1,10 @@
 # ベースイメージを指定 (PHP + Apache)
 FROM php:8.2-apache
 
-# 必要なPHP拡張モジュールをインストール
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# 必要なパッケージをインストール (MySQL用)
+RUN apt-get update && apt-get install -y \
+    libmysqlclient-dev && \
+    docker-php-ext-install mysqli pdo pdo_mysql
 
 # Composerをインストール
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
