@@ -1,5 +1,5 @@
 <?php
-require './tools/db/db.php'; // データベース接続ファイルを読み込む
+require './tools/db/db.php';
 session_start();
 
 $email = $_POST['email'] ?? null;

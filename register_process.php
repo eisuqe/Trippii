@@ -1,4 +1,3 @@
-<!-- register_process.php -->
 <?php
 require './tools/db/db.php';
 session_start();
