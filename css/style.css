@@ -112,6 +112,7 @@ p1{
     width: 150px;
     border: none;
     border-radius: 5px;
+    color: #000000;
     background: #ebebeb;
     box-shadow:  5px 5px 10px #c8c8c8,
                  -5px -5px 10px #ffffff;}
