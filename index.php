@@ -22,7 +22,7 @@ if (isset($_SESSION['login_error'])) {
         <!-- ログイン -->
         <div class="index-main">
             <div class="index-main-txt">
-                <p1>Login</p1>
+                <p1>ログイン</p1>
             </div>
             <?php if ($error): ?>
                 <p style="color: red; font-size: 15px; margin-top: -20px;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
@@ -33,21 +33,11 @@ if (isset($_SESSION['login_error'])) {
                     <input type="email" name="email" id="email" required><br>
                     <label>Password</label><br>
                     <input type="password" name="password" id="password" required><br>
-                    <div class="index-main-form-buttom">
-                        <button type="submit">Login</button>
+                    <div class="index-main-form-button">
+                        <button type="submit">ログイン</button>
                     </div>
                 </form>
-            </div>
-        </div>
-        <!-- 新規 -->
-        <div class="index-main-1">
-            <div class="index-main-txt">
-                <p1>新規会員登録</p1>
-            </div>
-            <div class="index-main-form-1">
-                <a href="./new-user.php">
-                    <button>今すぐ新規作成</button> 
-                </a>
+                <a href="./new-user.php">新しくアカウントを作成する</a>
             </div>
         </div>
     </div>  

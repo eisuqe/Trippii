@@ -7,7 +7,7 @@ box-shadow: 0 0 25px rgba(0, 0, 0, 0.089);
 border-radius: 10px;
 
 
-
+Zen Kaku Gothic Antique
 
 
 
@@ -50,7 +50,7 @@ body{
     align-items: center;
     background-color: #ebebeb;
     font-size: 20px;
-    font-family: 'Orbitron';
+    font-family: 'Zen Kaku Gothic Antique';
 }
 
 /* main box */
@@ -89,6 +89,9 @@ p1{
     height: 200px;
     padding: 30px 30px 30px 30px;
     color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .index-main-form form{
     width: 98%;
@@ -101,15 +104,17 @@ p1{
     background: #ebebeb;
     box-shadow: inset 5px 5px 10px #c8c8c8,
                 inset -5px -5px 10px #ffffff;}
-.index-main-form-buttom{
+.index-main-form-button{
     display: flex;
     justify-content: center;
-
 }
 .index-main-form button,.new-user-main-form button{
+    font-family:'Zen Kaku Gothic Antique';
+    font-weight: 600;
+    font-size: 15px;
     margin-top: 30px;
     height: 40px;
-    width: 150px;
+    width: 70%;
     border: none;
     border-radius: 5px;
     color: #000000;
@@ -117,26 +122,14 @@ p1{
     box-shadow:  5px 5px 10px #c8c8c8,
                  -5px -5px 10px #ffffff;}
 .index-main-form button:hover,.index-main-form-1 button:hover,.new-user-main-form button:hover{
-    background-color: #c0c0c0;
+    background: #ebebeb;
+    box-shadow: inset 5px 5px 10px #c8c8c8,
+                inset -5px -5px 10px #ffffff;
 }
-.index-main-1{
-    margin-top: 70px;
-    height: 375px;
-}
-
-.index-main-form-1{
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: auto;
-
-}
-.index-main-form-1 a button{
-    margin: auto;
-    height: 40px;
-    width: 300px;
-    background-color: #fff;
+.index-main-form a{
+    margin-top: 28px;
+    text-decoration: none;
+    font-size: 15px;
 }
 
 .new-user-main-form{
