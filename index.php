@@ -23,7 +23,6 @@ if (isset($_SESSION['login_error'])) {
         <div class="index-main">
             <div class="index-main-txt">
                 <p1>ログイン</p1>
-                <p>アカウントをお持ちの方はログインしてください</p>
             </div>
             <?php if ($error): ?>
                 <p style="color: red; font-size: 15px; margin-top: -20px;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
@@ -43,8 +42,7 @@ if (isset($_SESSION['login_error'])) {
         <!-- 新規 -->
         <div class="index-main-1">
             <div class="index-main-txt">
-                <p1>会員登録</p1>
-                <p>会員になると作成した旅のしおりを保存できます</p>
+                <p1>新規会員登録</p1>
             </div>
             <div class="index-main-form-1">
                 <a href="./new-user.php">
