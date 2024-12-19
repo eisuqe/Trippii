@@ -17,8 +17,6 @@ try {
 
     // エラーモードを例外に設定
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    echo "データベース接続成功！";
 } catch (PDOException $e) {
     die("データベース接続失敗: " . $e->getMessage());
 }

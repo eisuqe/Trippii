@@ -1,10 +1,9 @@
 <?php
-require './tools/db/db.php';
-session_start();
+session_start(); // セッション開始を一番上に移動
+require './tools/db/db.php'; // DB接続ファイル
 
 $email = $_POST['email'] ?? null;
 $password = $_POST['password'] ?? null;
-
 
 // POSTリクエストの確認
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
