@@ -85,14 +85,17 @@ p1{
     font-weight: 700;
 }
 .index-main-form,.index-main-form-1,.new-user-main-form{
-    width: 340px;
+    width: 75%;
     height: 200px;
     padding: 30px 30px 30px 30px;
     color: rgb(0, 0, 0);
 }
+.index-main-form form{
+    width: 98%;
+}
 .index-main-form input,.new-user-main-form input{
     height: 30px;
-    width: 85%;
+    width: 100%;
     border-radius: 5px;
     border: none;
     background: #ebebeb;
