@@ -24,13 +24,13 @@ if (isset($_SESSION['login_error'])) {
             <div class="index-main-txt">
                 <p1>ログイン</p1>
             </div>
-            <?php if ($error): ?>
-                <p style="color: red; font-size: 15px; margin-top: -20px;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
-            <?php endif; ?>
             <div class="index-main-form">
+                <?php if ($error): ?>
+                    <p style="color: red; font-size: 15px; margin-top: -20px;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
+                <?php endif; ?>
                 <form action="authenticate.php" method="POST">
-                    <label>e-Mail</label><br>
-                    <input type="email" name="email" id="email" required><br>
+                    <label>UserName</label><br>
+                    <input type="text" name="uname" id="uname" required><br>
                     <label>Password</label><br>
                     <input type="password" name="password" id="password" required><br>
                     <div class="index-main-form-button">

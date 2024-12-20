@@ -23,23 +23,23 @@ if (isset($_SESSION['register_error'])) {
         <div class="new-user-main">
             <div class="new-user-main-txt">
                 <p1>新規会員登録</p1>
-                <p>新しいアカウントの情報を設定してください</p>
             </div>
             <div class="new-user-main-form">
                 <?php if ($error): ?>
                     <p style="color: red; font-size: 15px;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
                 <?php endif; ?>
                 <form action="register_process.php" method="POST">
-                    <label for="email">メールアドレス</label><br>
-                    <input type="email" name="email" id="email" required>
+                    <label for="uname">UserName</label><br>
+                    <input type="text" name="uname" id="uname" required>
                     <br>
-                    <label for="password">パスワード</label><br>
+                    <label for="password">Password</label><br>
                     <input type="password" name="password" id="password" required>
                     <br>
                     <div class="new-user-main-form-button">
-                        <button type="submit">登録してログイン</button>
+                        <button type="submit">登録してはじめる</button>
                     </div>
                 </form>
+                <a href="./index.php">アカウントをお持ちの方はこちら</a>
             </div>
         </div>
     </div>  

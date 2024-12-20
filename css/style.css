@@ -61,7 +61,7 @@ body{
     align-items: center;
 }
 .index-main,.index-main-1,.new-user-main{
-    margin-top: 30px;
+    margin-top: 30px;   
     width: 90%;
     height: 100%;
     display: flex;
@@ -71,8 +71,8 @@ body{
     background: #ebebeb;
     box-shadow:  5px 5px 10px #c8c8c8,
                  -5px -5px 10px #ffffff;}
-.index-main{
-    padding-bottom: 60px;
+.index-main,.new-user-main{
+    padding-bottom: 30px;
 
 }
 .index-main-txt,.new-user-main-txt{
@@ -84,16 +84,16 @@ p1{
     font-size: 40px;
     font-weight: 700;
 }
-.index-main-form,.index-main-form-1,.new-user-main-form{
+.index-main-form,.new-user-main-form{
     width: 75%;
-    height: 200px;
+    height: 100%;
     padding: 30px 30px 30px 30px;
     color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.index-main-form form{
+.index-main-form form,.new-user-main-form form{
     width: 98%;
 }
 .index-main-form input,.new-user-main-form input{
@@ -104,7 +104,7 @@ p1{
     background: #ebebeb;
     box-shadow: inset 5px 5px 10px #c8c8c8,
                 inset -5px -5px 10px #ffffff;}
-.index-main-form-button{
+.index-main-form-button,.new-user-main-form-button{
     display: flex;
     justify-content: center;
 }
@@ -112,33 +112,25 @@ p1{
     font-family:'Zen Kaku Gothic Antique';
     font-weight: 600;
     font-size: 15px;
+    color: #000000;
     margin-top: 30px;
     height: 40px;
-    width: 70%;
+    width: 50%;
     border: none;
-    border-radius: 5px;
-    color: #000000;
+    border-radius: 30px;
     background: #ebebeb;
     box-shadow:  5px 5px 10px #c8c8c8,
-                 -5px -5px 10px #ffffff;}
+                 -5px -5px 10px #ffffff;
+    }
 .index-main-form button:hover,.index-main-form-1 button:hover,.new-user-main-form button:hover{
     background: #ebebeb;
     box-shadow: inset 5px 5px 10px #c8c8c8,
                 inset -5px -5px 10px #ffffff;
 }
-.index-main-form a{
+.index-main-form a,.new-user-main-form a{
     margin-top: 28px;
     text-decoration: none;
     font-size: 15px;
-}
-
-.new-user-main-form{
-    margin-bottom: 60px;
-    height: 100%;
-}
-.new-user-main-form-button{
-    display: flex;
-    justify-content: center;
 }
 .home-main{
     padding: 25px;
